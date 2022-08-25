@@ -61,5 +61,28 @@ public class TestEmployee {
 	
 		assertEquals("Mes Impar", 400.0F + 386.0F/12*2, e3.cs(),0);
 	}
+	
+	//system.out.print(Calendar.getInstance())
+	Instant nowUtc = Instant.now();
+	ZoneId americaGuayaquil = ZoneId.of("America/Guayaquil");
+	ZonedDateTime nowAmericaGuayaquil = ZonedDateTime.ofInstant(nowUtc, americaGuayaquil);
+	
+	import java.text.DateFormat;
+	import java.util.Date;
+	import java.util.Locale;
+	import java.util.TimeZone;
 
+	public class Main {
+	    public static void main(String[] args) {
+	        Locale locale = Locale.getDefault();
+	        TimeZone localTimeZone = TimeZone.getDefault(); 
+	        //TimeZone localTimeZone = TimeZone.getTimeZone("America/Guayaquil");
+	        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.FULL, locale);
+	        dateFormat.setTimeZone(localTimeZone);
+	        Date rightNow = new Date();
+	        System.out.println(locale.toString() + ": " + dateFormat.format(rightNow));
+	    }
+	}
+	
+	
 }
