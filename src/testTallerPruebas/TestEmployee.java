@@ -68,24 +68,24 @@ public class TestEmployee {
 		
 			
 		Employee e4 = new Employee( 500.0F, "EURO", EmployeeType.Worker);
-		Employee e5 = new Employee( 400.0F, "USD", EmployeeType.Worker);
-		Employee e6 = new Employee( 450.0F, "USD", EmployeeType.Worker);
+		Employee e5 = new Employee( 400.0F, "USD", EmployeeType.Supervisor);
+		Employee e6 = new Employee( 450.0F, "USD", EmployeeType.Manager);
 		Employee e7 = new Employee( 350.0F, "USD", EmployeeType.Worker);
 		
 		
 		
 		
 		//moneda diferente al dolar
-		assertEquals("Moneda Distinta", 600.0F*0.95F, e4.CalculateYearBonus(), 0);
+		assertEquals("Moneda Distinta", 570F, e4.CalculateYearBonus(), 0);
 		
 		//moneda de dolar
 		//supervisor
-		assertEquals("Moneda Dolar", 400.0F + 386.0F* 0.5F, e5.CalculateYearBonus(),0);
+		assertEquals("Moneda Dolar", 593F, e5.CalculateYearBonus(),0);
 	}
 	
 	//manager
 	
-	assertEquals("Moneda Dolar", 450.0F + 386.0F* 1.0F, e6.CalculateYearBonus(),0);
+	assertEquals("Moneda Dolar", 836F, e6.CalculateYearBonus(),0);
 }
 
 	//worker
