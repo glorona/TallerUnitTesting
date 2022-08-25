@@ -62,7 +62,37 @@ public class TestEmployee {
 		assertEquals("Mes Impar", 400.0F + 386.0F/12*2, e3.cs(),0);
 	}
 	
-	//system.out.print(Calendar.getInstance())
+	
+	@Test 
+	public void testCalculateYearBonus() {
+		
+			
+		Employee e4 = new Employee( 500.0F, "EURO", EmployeeType.Worker);
+		Employee e5 = new Employee( 400.0F, "USD", EmployeeType.Worker);
+		Employee e6 = new Employee( 450.0F, "USD", EmployeeType.Worker);
+		Employee e7 = new Employee( 350.0F, "USD", EmployeeType.Worker);
+		
+		
+		
+		
+		//moneda diferente al dolar
+		assertEquals("Moneda Distinta", 600.0F*0.95F, e4.CalculateYearBonus(), 0);
+		
+		//moneda de dolar
+		//supervisor
+		assertEquals("Moneda Dolar", 400.0F + 386.0F* 0.5F, e5.CalculateYearBonus(),0);
+	}
+	
+	//manager
+	
+	assertEquals("Moneda Dolar", 450.0F + 386.0F* 1.0F, e6.CalculateYearBonus(),0);
+}
+
+	//worker
+    assertEquals("Moneda Dolar", 350.0F , e7.CalculateYearBonus(),0);
+}
+	
+	/*/system.out.print(Calendar.getInstance())
 	Instant nowUtc = Instant.now();
 	ZoneId americaGuayaquil = ZoneId.of("America/Guayaquil");
 	ZonedDateTime nowAmericaGuayaquil = ZonedDateTime.ofInstant(nowUtc, americaGuayaquil);
@@ -82,7 +112,7 @@ public class TestEmployee {
 	        Date rightNow = new Date();
 	        System.out.println(locale.toString() + ": " + dateFormat.format(rightNow));
 	    }
-	}
+	}*/
 	
 	
 }
